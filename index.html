@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VISION RP</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Tahoma,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    color:#fff;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.78),
+            rgba(0,0,0,.90)
+        ),
+        url("vision-bg.jpg")
+        center/cover
+        fixed
+        no-repeat;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 20%,
+            rgba(170,0,0,.18)
+        );
+}
+
+.container{
+    width:min(100% - 28px,900px);
+    margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    background:rgba(4,4,4,.94);
+
+    border-bottom:
+        1px solid #790000;
+
+    backdrop-filter:blur(12px);
+}
+
+.nav{
+    min-height:65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:1000;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#e00000;
+}
+
+nav{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+nav button{
+    background:#151515;
+    color:#ddd;
+
+    border:
+        1px solid #450000;
+
+    padding:9px 12px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+nav button:hover{
+    background:#b00000;
+    color:#fff;
+}
+
+/* =========================
+   PAGES
+========================= */
+
+.page{
+    display:none;
+    padding:40px 0 70px;
+}
+
+.page.active{
+    display:block;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:72vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+}
+
+.hero h1{
+    font-size:
+        clamp(48px,12vw,100px);
+
+    font-weight:1000;
+
+    letter-spacing:6px;
+
+    text-shadow:
+        0 0 15px #e00000,
+        0 0 35px #800000;
+}
+
+.hero h1 span{
+    color:#e00000;
+}
+
+.hero p{
+    margin-top:12px;
+
+    color:#ccc;
+
+    font-size:18px;
+}
+
+.hero .btn{
+    margin-top:25px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+    background:
+        rgba(7,7,7,.92);
+
+    border:
+        1px solid #560000;
+
+    border-radius:16px;
+
+    padding:24px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.45);
+}
+
+.title{
+    color:#e00000;
+
+    font-size:28px;
+
+    font-weight:900;
+
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#999;
+
+    margin-bottom:20px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn{
+    border:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e00000,
+            #700000
+        );
+
+    color:#fff;
+
+    padding:14px 22px;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 18px
+        rgba(200,0,0,.25);
+
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+
+    filter:brightness(1.2);
+}
+
+.btn.dark{
+    background:#151515;
+
+    border:
+        1px solid #650000;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+label{
+    display:block;
+
+    margin:
+        15px 0 7px;
+
+    color:#eee;
+
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+
+    padding:14px;
+
+    border-radius:9px;
+
+    border:
+        1px solid #4d0000;
+
+    background:#111;
+
+    color:#fff;
+
+    outline:none;
+}
+
+input:focus{
+    border-color:#e00000;
+
+    box-shadow:
+        0 0 10px
+        rgba(210,0,0,.25);
+}
+
+/* =========================
+   RULES
+========================= */
+
+.rule{
+    border-right:
+        4px solid #d00000;
+
+    background:#111;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    margin:10px 0;
+
+    line-height:1.8;
+}
+
+/* =========================
+   TERMS
+========================= */
+
+.term{
+    padding:14px;
+
+    margin:8px 0;
+
+    background:#111;
+
+    border:
+        1px solid #330000;
+
+    border-radius:9px;
+
+    line-height:1.7;
+}
+
+.term b{
+    color:#e00000;
+}
+
+/* =========================
+   QUESTIONS
+========================= */
+
+.question{
+    background:#111;
+
+    border:
+        1px solid #420000;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+}
+
+.question h3{
+    font-size:17px;
+
+    margin-bottom:13px;
+}
+
+.option{
+    display:block;
+
+    padding:12px;
+
+    margin:7px 0;
+
+    border:
+        1px solid #333;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:#b00000;
+
+    background:#1a0000;
+}
+
+.option input{
+    width:auto;
+
+    margin-left:8px;
+
+    accent-color:#d00000;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+    height:8px;
+
+    background:#222;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    margin:
+        15px 0 25px;
+}
+
+.progress div{
+    height:100%;
+
+    width:0;
+
+    background:#d00000;
+
+    transition:.3s;
+}
+
+/* =========================
+   RESULT
+========================= */
+
+.result{
+    text-align:center;
+
+    padding:
+        30px 15px;
+}
+
+.score{
+    font-size:58px;
+
+    font-weight:1000;
+
+    color:#e00000;
+
+    margin:10px;
+}
+
+.correct{
+    color:#35d46a;
+
+    font-size:20px;
+
+    margin:7px;
+}
+
+.wrong{
+    color:#ff4545;
+
+    font-size:20px;
+
+    margin:7px;
+}
+
+.success{
+    color:#45ff8a;
+
+    font-size:20px;
+
+    font-weight:bold;
+}
+
+.error{
+    color:#ff5555;
+
+    font-size:15px;
+
+    margin-top:10px;
+}
+
+.small{
+    color:#777;
+
+    font-size:13px;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+    padding:18px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    margin-top:15px;
+}
+
+.pending{
+    background:#382c00;
+
+    color:#ffd84a;
+}
+
+.accepted{
+    background:#063d1c;
+
+    color:#45ff8a;
+}
+
+.rejected{
+    background:#430707;
+
+    color:#ff6060;
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+.adminItem{
+    background:#101010;
+
+    border:
+        1px solid #420000;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    margin:12px 0;
+}
+
+.adminItem h3{
+    color:#e00000;
+
+    margin-bottom:10px;
+}
+
+.adminItem p{
+    margin:7px 0;
+
+    color:#ccc;
+}
+
+.actions{
+    display:flex;
+
+    gap:8px;
+
+    margin-top:15px;
+}
+
+.actions button{
+    flex:1;
+}
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden{
+    display:none !important;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+
+    padding:30px;
+
+    color:#777;
+
+    border-top:
+        1px solid #300000;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+    .nav{
+        flex-direction:column;
+
+        padding:12px 0;
+    }
+
+    nav{
+        justify-content:center;
+    }
+
+    nav button{
+        font-size:12px;
+
+        padding:8px 9px;
+    }
+
+    .card{
+        padding:17px;
+    }
+
+    .hero h1{
+        letter-spacing:3px;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="container nav">
+
+    <div class="logo">
+        VISION <span>RP</span>
+    </div>
+
+    <nav>
+
+        <button onclick="showPage('home')">
+            الرئيسية
+        </button>
+
+        <button onclick="showPage('apply')">
+            التقديم
+        </button>
+
+        <button onclick="showPage('status')">
+            حالة طلبي
+        </button>
+
+        <button onclick="showPage('admin')">
+            الإدارة
+        </button>
+
+    </nav>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section
+    id="home"
+    class="page active"
+>
+
+<div class="container">
+
+
+<div class="hero">
+
+    <h1>
+        VISION <span>RP</span>
+    </h1>
+
+    <p>
+        أهلاً بيك في مدينة Vision RP
+    </p>
+
+    <button
+        class="btn"
+        onclick="showPage('apply')"
+    >
+        ابدأ التقديم
+    </button>
+
+</div>
+
+
+<div class="card">
+
+    <div class="title">
+        قوانين الـRP
+    </div>
+
+    <div class="rule">
+        احترام جميع اللاعبين والإدارة.
+    </div>
+
+    <div class="rule">
+        ممنوع الكلام خارج الرول أثناء السيناريو.
+    </div>
+
+    <div class="rule">
+        احترام Fear RP والخوف على حياتك.
+    </div>
+
+    <div class="rule">
+        ممنوع RDM أو VDM بدون سبب رول واضح.
+    </div>
+
+    <div class="rule">
+        ممنوع MetaGaming واستخدام معلومات من خارج المدينة.
+    </div>
+
+    <div class="rule">
+        ممنوع PowerGaming أو القيام بأفعال غير منطقية.
+    </div>
+
+    <div class="rule">
+        إذا تم إقصاؤك في سيناريو انتظر 5 دقائق قبل الرجوع.
+    </div>
+
+    <div class="rule">
+        ممنوع إحياء نفسك.
+    </div>
+
+    <div class="rule">
+        ممنوع العلاج أثناء القتال.
+    </div>
+
+    <div class="rule">
+        القوانين قابلة للتعديل ويجب متابعة تحديثات المدينة.
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <div class="title">
+        مصطلحات الـRP
+    </div>
+
+    <div class="term">
+        <b>RolePlay:</b>
+        تمثيل شخصيتك والتصرف بشكل واقعي.
+    </div>
+
+    <div class="term">
+        <b>Fail RP:</b>
+        مخالفة الرول أو التصرف بطريقة غير واقعية.
+    </div>
+
+    <div class="term">
+        <b>VDM:</b>
+        استخدام المركبة لإيذاء شخص بدون سبب رول مناسب.
+    </div>
+
+    <div class="term">
+        <b>RDM:</b>
+        قتل شخص بدون سبب أو تهديد رول واضح.
+    </div>
+
+    <div class="term">
+        <b>MetaGaming:</b>
+        استخدام معلومات من خارج المدينة داخل الرول.
+    </div>
+
+    <div class="term">
+        <b>PowerGaming:</b>
+        القيام بأفعال غير منطقية أو غير طبيعية.
+    </div>
+
+    <div class="term">
+        <b>Fear RP:</b>
+        الخوف على حياتك والتصرف بشكل واقعي.
+    </div>
+
+    <div class="term">
+        <b>TK:</b>
+        إيذاء شخص من نفس الفاكشن أو العصابة بدون سبب.
+    </div>
+
+    <div class="term">
+        <b>SK:</b>
+        قتل شخص عند الـSpawn.
+    </div>
+
+    <div class="term">
+        <b>LTA:</b>
+        الخروج من المدينة للهروب من سيناريو.
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     APPLY
+========================= -->
+
+<section
+    id="apply"
+    class="page"
+>
+
+<div class="container">
+
+
+<!-- PERSONAL DATA -->
+
+<div
+    class="card"
+    id="personalCard"
+>
+
+    <div class="title">
+        التقديم في Vision RP
+    </div>
+
+    <div class="subtitle">
+        اكتب بياناتك الأول، وبعدها هتدخل على قوانين الـRP ثم الاختبار.
+    </div>
+
+
+    <label>
+        الاسم
+    </label>
+
+    <input
+        id="name"
+        placeholder="اكتب اسمك"
+    >
+
+
+    <label>
+        العمر
+    </label>
+
+    <input
+        id="age"
+        type="number"
+        placeholder="اكتب عمرك"
+    >
+
+
+    <label>
+        Discord ID
+    </label>
+
+    <input
+        id="discord"
+        placeholder="اكتب Discord ID"
+    >
+
+
+    <br><br>
+
+    <button
+        class="btn"
+        onclick="startRules()"
+    >
+        التالي
+    </button>
+
+    <p
+        id="personalError"
+        class="error"
+    ></p>
+
+</div>
+
+
+<!-- RULES -->
+
+<div
+    class="card hidden"
+    id="rulesCard"
+>
+
+    <div class="title">
+        قوانين الـRP
+    </div>
+
+    <div class="subtitle">
+        اقرأ القوانين كويس قبل ما تبدأ الاختبار.
+    </div>
+
+
+    <div class="rule">
+        RolePlay: تمثيل الشخصية والتصرف بشكل واقعي.
+    </div>
+
+    <div class="rule">
+        Fail RP: مخالفة قوانين الرول أو التصرف بطريقة غير واقعية.
+    </div>
+
+    <div class="rule">
+        VDM: استخدام المركبة لإيذاء شخص بدون سبب رول مناسب.
+    </div>
+
+    <div class="rule">
+        RDM: قتل شخص بدون سبب أو سيناريو واضح.
+    </div>
+
+    <div class="rule">
+        MetaGaming: استخدام معلومات حصلت عليها خارج المدينة داخل الرول.
+    </div>
+
+    <div class="rule">
+        PowerGaming: القيام بأفعال غير طبيعية أو غير منطقية.
+    </div>
+
+    <div class="rule">
+        Fear RP: الخوف على حياتك والتصرف بناءً على الخطر.
+    </div>
+
+    <div class="rule">
+        TK: إيذاء شخص من نفس الفاكشن أو العصابة بدون سبب.
+    </div>
+
+    <div class="rule">
+        SK: قتل شخص عند نقطة الـSpawn.
+    </div>
+
+    <div class="rule">
+        LTA: الخروج من المدينة للهروب من سيناريو.
+    </div>
+
+    <div class="rule">
+        ممنوع الكلام خارج الرول أثناء السيناريو.
+    </div>
+
+    <div class="rule">
+        ممنوع استخدام معلومات من الستريم أو من أشخاص خارج المدينة.
+    </div>
+
+    <div class="rule">
+        احترام الإدارة وجميع اللاعبين.
+    </div>
+
+    <div class="rule">
+        3 مخالفات أو Warnings قد تؤدي إلى الباند حسب نظام الإدارة.
+    </div>
+
+    <div class="rule">
+        القوانين قابلة للتحديث.
+    </div>
+
+
+    <br>
+
+    <button
+        class="btn"
+        onclick="startQuiz()"
+    >
+        قرأت القوانين — ابدأ الاختبار
+    </button>
+
+</div>
+
+
+<!-- QUIZ -->
+
+<div
+    class="card hidden"
+    id="quizCard"
+>
+
+    <div class="title">
+        اختبار الـRP
+    </div>
+
+    <p class="subtitle">
+        جاوب على كل الأسئلة. النتيجة هتظهرلك بعد انتهاء الاختبار.
+    </p>
+
+
+    <div class="progress">
+
+        <div
+            id="progressBar"
+        ></div>
+
+    </div>
+
+
+    <div id="questions"></div>
+
+
+    <button
+        class="btn"
+        onclick="finishQuiz()"
+    >
+        إنهاء الاختبار
+    </button>
+
+
+    <p
+        id="quizError"
+        class="error"
+    ></p>
+
+</div>
+
+
+<!-- RESULT -->
+
+<div
+    class="card hidden"
+    id="resultCard"
+>
+
+    <div class="result">
+
+        <div class="title">
+            نتيجة اختبارك
+        </div>
+
+
+        <div
+            class="score"
+            id="score"
+        >
+            0 / 15
+        </div>
+
+
+        <div
+            class="correct"
+            id="correctCount"
+        >
+            إجابات صحيحة: 0
+        </div>
+
+
+        <div
+            class="wrong"
+            id="wrongCount"
+        >
+            إجابات خاطئة: 0
+        </div>
+
+
+        <div id="percentage">
+            النسبة: 0%
+        </div>
+
+
+        <br>
+
+
+        <div
+            id="resultMessage"
+        ></div>
+
+
+        <br>
+
+
+        <p class="small">
+            رقم طلبك:
+        </p>
+
+
+        <h2 id="applicationId">
+            -
+        </h2>
+
+
+        <br>
+
+
+        <button
+            class="btn"
+            onclick="showPage('status')"
+        >
+            متابعة حالة الطلب
+        </button>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     STATUS
+========================= -->
+
+<section
+    id="status"
+    class="page"
+>
+
+<div class="container">
+
+<div class="card">
+
+    <div class="title">
+        حالة طلبك
+    </div>
+
+    <p class="subtitle">
+        اكتب رقم الطلب وDiscord ID لمعرفة حالة التقديم.
+    </p>
+
+
+    <label>
+        Application ID
+    </label>
+
+    <input
+        id="statusId"
+        placeholder="مثال: VRP-123456"
+    >
+
+
+    <label>
+        Discord ID
+    </label>
+
+    <input
+        id="statusDiscord"
+        placeholder="Discord ID"
+    >
+
+
+    <br><br>
+
+
+    <button
+        class="btn"
+        onclick="checkStatus()"
+    >
+        بحث
+    </button>
+
+
+    <div id="statusResult"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ADMIN
+========================= -->
+
+<section
+    id="admin"
+    class="page"
+>
+
+<div class="container">
+
+
+<!-- ADMIN LOGIN -->
+
+<div
+    class="card"
+    id="adminLogin"
+>
+
+    <div class="title">
+        لوحة الإدارة
+    </div>
+
+    <p class="subtitle">
+        دخول الإدارة فقط.
+    </p>
+
+
+    <label>
+        كلمة مرور الإدارة
+    </label>
+
+    <input
+        id="adminPassword"
+        type="password"
+        placeholder="كلمة المرور"
+    >
+
+
+    <br><br>
+
+
+    <button
+        class="btn"
+        onclick="adminLoginAction()"
+    >
+        دخول
+    </button>
+
+
+    <p
+        id="adminError"
+        class="error"
+    ></p>
+
+</div>
+
+
+<!-- ADMIN PANEL -->
+
+<div
+    class="card hidden"
+    id="adminPanel"
+>
+
+    <div class="title">
+        طلبات التقديم
+    </div>
+
+
+    <button
+        class="btn dark"
+        onclick="loadApplications()"
+    >
+        تحديث الطلبات
+    </button>
+
+
+    <div id="applications">
+        جاري تحميل الطلبات...
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+    VISION RP © 2026
+</footer>
+
+
+<script>
+
+/* =========================
+   API
+========================= */
+
+const API =
+    "/.netlify/functions/api";
+
+
+let currentApplication = null;
+
+let adminPasswordValue = "";
+
+
+/* =========================
+   QUESTIONS
+========================= */
+
+const questions = [
+
+{
+q:"ما هو RolePlay؟",
+
+options:[
+"اللعب بدون قوانين",
+"تمثيل الشخصية والتصرف بشكل واقعي",
+"قتل أي شخص",
+"الخروج من السيرفر"
+],
+
+answer:1
+},
+
+{
+q:"ما معنى Fail RP؟",
+
+options:[
+"التصرف بشكل واقعي",
+"مخالفة الرول أو التصرف بطريقة غير واقعية",
+"احترام الإدارة",
+"العمل داخل المدينة"
+],
+
+answer:1
+},
+
+{
+q:"ما معنى RDM؟",
+
+options:[
+"قتل شخص بدون سبب أو سيناريو واضح",
+"قيادة السيارة",
+"عمل سيناريو",
+"الخروج من اللعبة"
+],
+
+answer:0
+},
+
+{
+q:"ما معنى VDM؟",
+
+options:[
+"استخدام السيارة لإيذاء شخص بدون سبب رول مناسب",
+"التحدث في الديسكورد",
+"إحياء لاعب",
+"عمل وظيفة"
+],
+
+answer:0
+},
+
+{
+q:"ما معنى MetaGaming؟",
+
+options:[
+"استخدام معلومات من خارج المدينة داخل الرول",
+"شراء سيارة",
+"عمل وظيفة",
+"القيادة بسرعة"
+],
+
+answer:0
+},
+
+{
+q:"ما معنى PowerGaming؟",
+
+options:[
+"التصرف بشكل واقعي",
+"القيام بأفعال غير منطقية أو غير طبيعية",
+"احترام الشرطة",
+"عمل وظيفة"
+],
+
+answer:1
+},
+
+{
+q:"ما معنى Fear RP؟",
+
+options:[
+"عدم الخوف أبداً",
+"الخوف على حياتك والتصرف بشكل واقعي",
+"الخروج من السيرفر",
+"قتل شخص"
+],
+
+answer:1
+},
+
+{
+q:"ما معنى TK؟",
+
+options:[
+"إيذاء شخص من نفس الفاكشن أو العصابة بدون سبب",
+"عمل سيناريو",
+"القيادة",
+"العمل"
+],
+
+answer:0
+},
+
+{
+q:"ما معنى SK؟",
+
+options:[
+"قتل شخص عند الـSpawn",
+"احترام اللاعب",
+"الخروج من المدينة",
+"عمل وظيفة"
+],
+
+answer:0
+},
+
+{
+q:"ما معنى LTA؟",
+
+options:[
+"الخروج من المدينة للهروب من سيناريو",
+"عمل سيناريو",
+"احترام الإدارة",
+"شراء سيارة"
+],
+
+answer:0
+},
+
+{
+q:"هل يجوز استخدام معلومات من الستريم داخل الرول؟",
+
+options:[
+"نعم دائماً",
+"لا، هذا MetaGaming",
+"نعم لو معايا فلوس",
+"نعم لو الشرطة موجودة"
+],
+
+answer:1
+},
+
+{
+q:"إذا تم إقصاؤك في سيناريو، ماذا تفعل؟",
+
+options:[
+"ترجع فوراً",
+"تنتظر 5 دقائق قبل الرجوع",
+"تقتل الجميع",
+"تخرج من المدينة"
+],
+
+answer:1
+},
+
+{
+q:"هل يجوز إحياء نفسك؟",
+
+options:[
+"نعم",
+"لا",
+"حسب السيارة",
+"دائماً"
+],
+
+answer:1
+},
+
+{
+q:"هل يجوز العلاج أثناء القتال؟",
+
+options:[
+"نعم",
+"لا",
+"لو معاك فلوس",
+"لو معاك سيارة"
+],
+
+answer:1
+},
+
+{
+q:"ما أهم شيء في الـRP؟",
+
+options:[
+"الفوز بأي طريقة",
+"الاحترام والالتزام بالرول",
+"قتل اللاعبين",
+"الخروج من اللعبة"
+],
+
+answer:1
+}
+
+];
+
+
+/* =========================
+   SHOW PAGE
+========================= */
+
+function showPage(id){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page=>{
+            page.classList.remove("active");
+        });
+
+
+    document
+        .getElementById(id)
+        .classList.add("active");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   START RULES
+========================= */
+
+function startRules(){
+
+    const name =
+        document
+        .getElementById("name")
+        .value
+        .trim();
+
+
+    const age =
+        document
+        .getElementById("age")
+        .value
+        .trim();
+
+
+    const discord =
+        document
+        .getElementById("discord")
+        .value
+        .trim();
+
+
+    const error =
+        document
+        .getElementById("personalError");
+
+
+    error.textContent = "";
+
+
+    if(!name || !age || !discord){
+
+        error.textContent =
+            "من فضلك اكتب الاسم والسن وDiscord ID.";
+
+        return;
+    }
+
+
+    if(Number(age) < 13){
+
+        error.textContent =
+            "السن غير مناسب للتقديم.";
+
+        return;
+    }
+
+
+    currentApplication = {
+
+        name:name,
+
+        age:age,
+
+        discord:discord
+
+    };
+
+
+    document
+        .getElementById("personalCard")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("rulesCard")
+        .classList.remove("hidden");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   START QUIZ
+========================= */
+
+function startQuiz(){
+
+    document
+        .getElementById("rulesCard")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("quizCard")
+        .classList.remove("hidden");
+
+
+    renderQuestions();
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   RENDER QUESTIONS
+========================= */
+
+function renderQuestions(){
+
+    const box =
+        document.getElementById("questions");
+
+
+    box.innerHTML = "";
+
+
+    questions.forEach(
+        (item,index)=>{
+
+            const div =
+                document.createElement("div");
+
+
+            div.className =
+                "question";
+
+
+            let html =
+                `<h3>
+                    ${index+1}. ${item.q}
+                 </h3>`;
+
+
+            item.options.forEach(
+                (option,optIndex)=>{
+
+                    html += `
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="q${index}"
+                            value="${optIndex}"
+                            onchange="updateProgress()"
+                        >
+
+                        ${option}
+
+                    </label>
+
+                    `;
+
+                }
+            );
+
+
+            div.innerHTML =
+                html;
+
+
+            box.appendChild(div);
+
+        }
+    );
+
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function updateProgress(){
+
+    let answered = 0;
+
+
+    questions.forEach(
+        (q,index)=>{
+
+            if(
+                document.querySelector(
+                    `input[name="q${index}"]:checked`
+                )
+            ){
+
+                answered++;
+
+            }
+
+        }
+    );
+
+
+    const percent =
+        (answered / questions.length) * 100;
+
+
+    document
+        .getElementById("progressBar")
+        .style.width =
+        percent + "%";
+
+}
+
+
+/* =========================
+   FINISH QUIZ
+========================= */
+
+async function finishQuiz(){
+
+    const error =
+        document
+        .getElementById("quizError");
+
+
+    error.textContent = "";
+
+
+    let correct = 0;
+
+    let answered = 0;
+
+
+    questions.forEach(
+        (item,index)=>{
+
+            const selected =
+                document.querySelector(
+                    `input[name="q${index}"]:checked`
+                );
+
+
+            if(selected){
+
+                answered++;
+
+
+                if(
+                    Number(selected.value) ===
+                    item.answer
+                ){
+
+                    correct++;
+
+                }
+
+            }
+
+        }
+    );
+
+
+    if(answered !== questions.length){
+
+        error.textContent =
+            "لازم تجاوب على كل الأسئلة قبل إنهاء الاختبار.";
+
+        return;
+    }
+
+
+    const wrong =
+        questions.length - correct;
+
+
+    const percentage =
+        Math.round(
+            (correct / questions.length) * 100
+        );
+
+
+    const passed =
+        correct >= 12;
+
+
+    document
+        .getElementById("score")
+        .textContent =
+        `${correct} / ${questions.length}`;
+
+
+    document
+        .getElementById("correctCount")
+        .textContent =
+        `إجابات صحيحة: ${correct}`;
+
+
+    document
+        .getElementById("wrongCount")
+        .textContent =
+        `إجابات خاطئة: ${wrong}`;
+
+
+    document
+        .getElementById("percentage")
+        .textContent =
+        `النسبة: ${percentage}%`;
+
+
+    document
+        .getElementById("resultMessage")
+        .innerHTML = passed
+
+        ?
+
+        `<div class="success">
+            ✅ مبروك! نجحت في اختبار الـRP
+         </div>`
+
+        :
+
+        `<div class="error">
+            ❌ للأسف لم تنجح في الاختبار
+         </div>`;
+
+
+    const submitData = {
+
+        action:"submit",
+
+        name:
+            currentApplication.name,
+
+        age:
+            currentApplication.age,
+
+        discord:
+            currentApplication.discord,
+
+        correct:correct,
+
+        wrong:wrong,
+
+        percentage:percentage,
+
+        passed:passed
+
+    };
+
+
+    try{
+
+        const response =
+            await fetch(
+                API,
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                        "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(
+                            submitData
+                        )
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.error ||
+                "حدث خطأ"
+            );
+
+        }
+
+
+        currentApplication.id =
+            data.id;
+
+
+        document
+            .getElementById("applicationId")
+            .textContent =
+            data.id;
+
+
+        document
+            .getElementById("quizCard")
+            .classList.add("hidden");
+
+
+        document
+            .getElementById("resultCard")
+            .classList.remove("hidden");
+
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+
+    }catch(err){
+
+        error.textContent =
+            "حصل خطأ أثناء إرسال الطلب: " +
+            err.message;
+
+    }
+
+}
+
+
+/* =========================
+   CHECK STATUS
+========================= */
+
+async function checkStatus(){
+
+    const id =
+        document
+        .getElementById("statusId")
+        .value
+        .trim();
+
+
+    const discord =
+        document
+        .getElementById("statusDiscord")
+        .value
+        .trim();
+
+
+    const box =
+        document
+        .getElementById("statusResult");
+
+
+    box.innerHTML =
+        "جاري البحث...";
+
+
+    if(!id || !discord){
+
+        box.innerHTML = `
+
+        <div class="status rejected">
+
+            اكتب Application ID وDiscord ID.
+
+        </div>
+
+        `;
+
+        return;
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+                `${API}?action=status&id=${encodeURIComponent(id)}&discord=${encodeURIComponent(discord)}`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.error ||
+                "لم يتم العثور على الطلب"
+            );
+
+        }
+
+
+        let statusClass =
+            "pending";
+
+
+        let statusText =
+            "قيد المراجعة";
+
+
+        if(data.status === "accepted"){
+
+            statusClass =
+                "accepted";
+
+            statusText =
+                "تم قبول طلبك ✅";
+
+        }
+
+
+        if(data.status === "rejected"){
+
+            statusClass =
+                "rejected";
+
+            statusText =
+                "تم رفض طلبك ❌";
+
+        }
+
+
+        box.innerHTML = `
+
+        <div class="status ${statusClass}">
+
+            <h2>
+                ${statusText}
+            </h2>
+
+            <br>
+
+            <p>
+                الاسم:
+                ${data.name}
+            </p>
+
+            <p>
+                النتيجة:
+                ${data.correct} صح /
+                ${data.wrong} غلط
+            </p>
+
+            <p>
+                النسبة:
+                ${data.percentage}%
+            </p>
+
+        </div>
+
+        `;
+
+
+    }catch(err){
+
+        box.innerHTML = `
+
+        <div class="status rejected">
+
+            ${err.message}
+
+        </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   ADMIN LOGIN
+========================= */
+
+async function adminLoginAction(){
+
+    const password =
+        document
+        .getElementById("adminPassword")
+        .value;
+
+
+    const error =
+        document
+        .getElementById("adminError");
+
+
+    error.textContent = "";
+
+
+    if(!password){
+
+        error.textContent =
+            "اكتب كلمة المرور.";
+
+        return;
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+                `${API}?action=list`,
+                {
+                    headers:{
+                        "x-admin-password":
+                        password
+                    }
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.error ||
+                "كلمة المرور غير صحيحة"
+            );
+
+        }
+
+
+        adminPasswordValue =
+            password;
+
+
+        document
+            .getElementById("adminLogin")
+            .classList.add("hidden");
+
+
+        document
+            .getElementById("adminPanel")
+            .classList.remove("hidden");
+
+
+        renderApplications(
+            data.applications
+        );
+
+
+    }catch(err){
+
+        error.textContent =
+            err.message;
+
+    }
+
+}
+
+
+/* =========================
+   LOAD APPLICATIONS
+========================= */
+
+async function loadApplications(){
+
+    const box =
+        document
+        .getElementById("applications");
+
+
+    box.innerHTML =
+        "جاري تحميل الطلبات...";
+
+
+    try{
+
+        const response =
+            await fetch(
+                `${API}?action=list`,
+                {
+                    headers:{
+                        "x-admin-password":
+                        adminPasswordValue
+                    }
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.error ||
+                "حدث خطأ"
+            );
+
+        }
+
+
+        renderApplications(
+            data.applications
+        );
+
+
+    }catch(err){
+
+        box.innerHTML = `
+
+        <p class="error">
+            ${err.message}
+        </p>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   RENDER APPLICATIONS
+========================= */
+
+function renderApplications(applications){
+
+    const box =
+        document
+        .getElementById("applications");
+
+
+    if(
+        !applications ||
+        applications.length === 0
+    ){
+
+        box.innerHTML = `
+
+        <p class="small">
+            لا توجد طلبات حالياً.
+        </p>
+
+        `;
+
+        return;
+    }
+
+
+    box.innerHTML = "";
+
+
+    applications.forEach(
+        app=>{
+
+            let statusText =
+                "قيد المراجعة";
+
+
+            if(
+                app.status ===
+                "accepted"
+            ){
+
+                statusText =
+                    "مقبول";
+
+            }
+
+
+            if(
+                app.status ===
+                "rejected"
+            ){
+
+                statusText =
+                    "مرفوض";
+
+            }
+
+
+            const div =
+                document.createElement("div");
+
+
+            div.className =
+                "adminItem";
+
+
+            div.innerHTML = `
+
+            <h3>
+                ${app.id}
+            </h3>
+
+
+            <p>
+                <b>الاسم:</b>
+                ${app.name}
+            </p>
+
+
+            <p>
+                <b>العمر:</b>
+                ${app.age}
+            </p>
+
+
+            <p>
+                <b>Discord:</b>
+                ${app.discord}
+            </p>
+
+
+            <p>
+                <b>النتيجة:</b>
+                ${app.correct} صح /
+                ${app.wrong} غلط
+            </p>
+
+
+            <p>
+                <b>النسبة:</b>
+                ${app.percentage}%
+            </p>
+
+
+            <p>
+                <b>الحالة:</b>
+                ${statusText}
+            </p>
+
+
+            <div class="actions">
+
+                <button
+                    class="btn"
+                    onclick="updateApplication(
+                        '${app.id}',
+                        'accepted'
+                    )"
+                >
+                    قبول
+                </button>
+
+
+                <button
+                    class="btn dark"
+                    onclick="updateApplication(
+                        '${app.id}',
+                        'rejected'
+                    )"
+                >
+                    رفض
+                </button>
+
+            </div>
+
+            `;
+
+
+            box.appendChild(div);
+
+        }
+    );
+
+}
+
+
+/* =========================
+   UPDATE APPLICATION
+========================= */
+
+async function updateApplication(
+    id,
+    status
+){
+
+    const action =
+        status === "accepted"
+        ? "قبول"
+        : "رفض";
+
+
+    if(
+        !confirm(
+            `هل تريد ${action} الطلب ${id}؟`
+        )
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+                API,
+                {
+                    method:"POST",
+
+                    headers:{
+
+                        "Content-Type":
+                        "application/json",
+
+                        "x-admin-password":
+                        adminPasswordValue
+
+                    },
+
+                    body:
+                    JSON.stringify({
+
+                        action:"update",
+
+                        id:id,
+
+                        status:status
+
+                    })
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.error ||
+                "حدث خطأ"
+            );
+
+        }
+
+
+        await loadApplications();
+
+
+    }catch(err){
+
+        alert(
+            err.message
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+  </html>
